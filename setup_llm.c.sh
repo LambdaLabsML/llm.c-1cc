@@ -3,9 +3,8 @@
 # 1) Distribute a hostfile of all workers to head nodes
 # 2) Install parallel-ssh on head nodes
 # 3) Parallelized installation of dependencies on worker nodes
-# 4) Clone llm.c to shared storage
-# 5) Prepare dataset on the shared storage
-# 6) Build train_gpt2cu on the shared storage
+# 4) Prepare dataset on the shared storage
+# 5) Build train_gpt2cu on the shared storage
 
 # -----------------------------------------------------
 # 1) Distribute a hostfile of all workers to head nodes
@@ -86,7 +85,7 @@ ssh -F "$CONFIG_PATH" "${head1}" "parallel-ssh -h ~/hostfile_1cc_worker -i '${cm
 
 
 # -----------------------------------------------------
-# 4) Clone llm.c to shared storage
+# 4) Prepare dataset on the shared storage
 # -----------------------------------------------------
 worker1=$(echo "${worker_hosts}" | head -n 1)
 
@@ -103,9 +102,6 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# -----------------------------------------------------
-# 5) Prepare dataset on the shared storage
-# -----------------------------------------------------
 cmd_dataset=""
 cmd_dataset+="yes | pip install tqdm tiktoken requests datasets && "
 cmd_dataset+="cd ${STORAGE_PATH} && "
@@ -115,7 +111,7 @@ cmd_dataset+="python dev/data/fineweb.py --version 10B"
 ssh -F "$CONFIG_PATH" "${worker1}" ${cmd_dataset}
 
 # -----------------------------------------------------
-# 6) Build train_gpt2cu on the shared storage
+# 5) Build train_gpt2cu on the shared storage
 # -----------------------------------------------------
 cmd_build_train=""
 cmd_build_train+="cd ${STORAGE_PATH}/llm.c && "
