@@ -109,7 +109,7 @@ fi
 cmd_dataset=""
 cmd_dataset+="yes | pip install tqdm tiktoken requests datasets && "
 cmd_dataset+="cd ${STORAGE_PATH} && "
-cmd_dependencies+="[ -d llm.c ] || git clone https://github.com/karpathy/llm.c.git && "
+cmd_dataset+="[ -d llm.c ] || git clone https://github.com/karpathy/llm.c.git && "
 cmd_dataset+="cd llm.c && "
 cmd_dataset+="python dev/data/fineweb.py --version 10B"
 ssh -F "$CONFIG_PATH" "${worker1}" ${cmd_dataset}
