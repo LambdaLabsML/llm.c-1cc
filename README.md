@@ -1,5 +1,8 @@
 # Run llm.c on Lambda 1-Click Clusters
 
+Welcome to the Lambda Labs 1-Click Clusters setup guide for training [Andrej Kapathy](https://twitter.com/karpathy)'s [llm.c](https://github.com/karpathy/llm.c)! 🚀 Building on Andrej's [reproduction guide](https://github.com/karpathy/llm.c/discussions/481), we have made small adjustments to simplify the setup for 1-Click Cluster's [existing hardware](https://lambdalabs.com/blog/introducing-lambda-1-click-clusters-a-new-way-to-train-large-ai-models) (including InfiniBand NICs and shared storage) and [software stack](https://lambdalabs.com/lambda-stack-deep-learning-software).
+
+
 ### Step 1: Distribute key & hostfile
 
 Run the following commands from your local machine
@@ -20,6 +23,9 @@ bash setup_llm.c.sh
 `ssh` into the head node and run the following command:
 
 ```
+# Don't forget to set up STORAGE_PATH on your head node
+export STORAGE_PATH=<path-to-your-1cc-storage>
+
 export LLMC_PATH=$STORAGE_PATH"/llm.c"
 export binary_path=$LLMC_PATH"/train_gpt2cu"
 export out_dir=$LLMC_PATH"/log_gpt2_124M_multi"

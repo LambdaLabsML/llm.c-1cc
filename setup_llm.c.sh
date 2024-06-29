@@ -121,3 +121,5 @@ cmd_build_train=""
 cmd_build_train+="cd ${STORAGE_PATH}/llm.c && "
 cmd_build_train+="make train_gpt2cu USE_CUDNN=1"
 ssh -F "$CONFIG_PATH" "${worker1}" ${cmd_build_train}
+
+echo "Setup completed. Time to train your own llm.c model! 😀🌟"
