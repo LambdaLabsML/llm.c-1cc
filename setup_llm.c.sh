@@ -84,6 +84,12 @@ cmd_dependencies+="sudo apt-get install -y libucx0 && "
 cmd_dependencies+="sudo apt-get install -y openmpi-bin openmpi-doc libopenmpi-dev"
 ssh -F "$CONFIG_PATH" "${head1}" "parallel-ssh -h ~/hostfile_1cc_worker -i '${cmd_dependencies}'"
 
+echo "Installing dependencies on the first head ..."
+cmd_dependencies_head=""
+cmd_dependencies_head+="sudo apt-get update && "
+cmd_dependencies_head+="sudo apt-get install -y libucx0 && "
+cmd_dependencies_head+="sudo apt-get install -y openmpi-bin openmpi-doc libopenmpi-dev"
+ssh -F "$CONFIG_PATH" "${head1}" ${cmd_dependencies_head}
 
 # -----------------------------------------------------
 # 4) Clone llm.c to shared storage
