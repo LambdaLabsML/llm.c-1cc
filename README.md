@@ -1,6 +1,6 @@
 # Run llm.c on Lambda 1-Click Clusters
 
-Welcome to the Lambda Labs 1-Click Clusters setup guide for training [Andrej Kapathy](https://twitter.com/karpathy)'s [llm.c](https://github.com/karpathy/llm.c)! 🚀 Building on Andrej's [reproduction guide](https://github.com/karpathy/llm.c/discussions/481), we have made small adjustments to simplify the setup for 1-Click Cluster's [existing hardware](https://lambdalabs.com/blog/introducing-lambda-1-click-clusters-a-new-way-to-train-large-ai-models) (including InfiniBand NICs and shared storage) and [software stack](https://lambdalabs.com/lambda-stack-deep-learning-software).
+Welcome to the Lambda Labs [1-Click Clusters](https://lambdalabs.com/service/gpu-cloud/1-click-clusters) setup guide for training [Andrej Kapathy](https://twitter.com/karpathy)'s [llm.c](https://github.com/karpathy/llm.c)! 🚀 Building on Andrej's [reproduction guide](https://github.com/karpathy/llm.c/discussions/481), we have made small adjustments to simplify the setup for 1-Click Cluster's [existing hardware](https://lambdalabs.com/blog/introducing-lambda-1-click-clusters-a-new-way-to-train-large-ai-models) (including InfiniBand NICs and shared storage) and [software stack](https://lambdalabs.com/lambda-stack-deep-learning-software).
 
 
 ### Step 1: Setup the Cluster for llm.c  
