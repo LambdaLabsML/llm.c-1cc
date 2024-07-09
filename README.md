@@ -34,13 +34,13 @@ export train_data_path=$LLMC_PATH"/dev/data/fineweb10B/fineweb_train_*.bin"
 export val_data_path=$LLMC_PATH"/dev/data/fineweb10B/fineweb_val_*.bin"
 
 export hostfile_path=/home/ubuntu/hostfile_1cc_worker_mpirun
-export OMPI_MCA_btl_tcp_if_include=enp8s0
+export OMPI_MCA_btl_tcp_if_include=eno1
 export UCX_TLS=self,shm,tcp
 export NCCL_P2P_LEVEL=NVL
 export NCCL_NET_GDR_LEVEL=PIX
 export NCCL_IB_HCA='=mlx5_1,mlx5_2,mlx5_3,mlx5_4,mlx5_5,mlx5_6,mlx5_7,mlx5_8'
 export NCCL_IB_PCI_RELAXED_ORDERING=1
-export NCCL_SOCKET_IFNAME=enp8s0
+export NCCL_SOCKET_IFNAME=eno1
 export NCCL_DEBUG=INFO
 
 mpirun --hostfile $hostfile_path \
